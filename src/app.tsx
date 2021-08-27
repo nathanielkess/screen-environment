@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Authenticator } from './components/authenticator';
 import { Campaign } from './screens/campaign';
 import { Home } from './screens/home';
 
@@ -15,6 +16,7 @@ const RoutedApp = () => {
             <Link to="/campaign">Campaign</Link>
           </li>
         </ul>
+        <Authenticator />
       </nav>
       <Switch>
         <Route path="/campaign">

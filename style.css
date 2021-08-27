@@ -13,9 +13,13 @@ nav {
   padding: 20px 30px;
   background-color: #cfcfcf;
   border: 1px solid #cfcfcf;
+  display: flex;
+  align-items: center;
 }
+
 nav > ul {
   list-style-type: none;
+  flex: 1;
 }
 nav > ul li {
   display: inline-block;
@@ -23,4 +27,8 @@ nav > ul li {
 nav > ul a {
   padding: 0px 20px;
   text-decoration: none;
+}
+
+#authenticator label {
+  display: block;
 }
