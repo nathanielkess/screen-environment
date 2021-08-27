@@ -1,5 +1,11 @@
-import React, { FC } from 'react';
+import React, { FC, Fragment } from 'react';
+import { CountDownCampaign } from '../../libs/count-down-compaign';
+import { ScreenEnvironment, AuthStatus } from '../../libs/screen-environment';
 
 export const Campaign: FC = () => {
-  return <p>Campaign Screen</p>;
+  return (
+    <ScreenEnvironment environmentType="mobileApp" authStatus="verified">
+      {() => <CountDownCampaign />}
+    </ScreenEnvironment>
+  );
 };

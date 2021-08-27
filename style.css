@@ -10,17 +10,17 @@ p {
 }
 
 nav {
-  text-align: center;
+  padding: 20px 30px;
   background-color: #cfcfcf;
   border: 1px solid #cfcfcf;
 }
-nav ul {
+nav > ul {
   list-style-type: none;
 }
-nav li {
+nav > ul li {
   display: inline-block;
 }
-nav a {
+nav > ul a {
   padding: 0px 20px;
   text-decoration: none;
 }
