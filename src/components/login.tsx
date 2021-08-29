@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useAuth } from '../providers/auth/useAuth';
 
 export const Login = () => {
-  const [authState, setAuthState] = useState(0);
+  const { status, setStatus } = useAuth();
 
   const handleChange = ({ target }) => {
     const val = +target.value;
-    setAuthState(prev => (target.checked ? val : val === 2 ? 1 : 0));
+    const authStatus = target.checked ? val : val === 2 ? 1 : 0;
+    setStatus(authStatus);
   };
-
-  // const { status, setStatus } = useAuth();
 
   return (
     <div id="authenticator">
@@ -18,7 +18,7 @@ export const Login = () => {
           id="authenticated"
           name="authenticated"
           onChange={handleChange}
-          checked={authState === 1 || authState === 2}
+          checked={status === 1 || status === 2}
           value="1"
         />
         Authenticated
@@ -29,7 +29,7 @@ export const Login = () => {
           onChange={handleChange}
           id="verified"
           name="verified"
-          checked={authState === 2}
+          checked={status === 2}
           value="2"
         />
         Verified

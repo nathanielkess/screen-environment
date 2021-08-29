@@ -1,4 +1,4 @@
-import React, from 'react';
+import React from 'react';
 import { Authentication } from '../../models/authentication';
 import { Auth } from './auth.types';
 
