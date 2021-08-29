@@ -27,6 +27,8 @@ nav > ul li {
 nav > ul a {
   padding: 0px 20px;
   text-decoration: none;
+  color: #333333;
+  font-weight: 900;
 }
 
 #authenticator label {

@@ -1,6 +1,13 @@
-import React, { FC } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { Authenticator } from './components/authenticator';
+import React, { FC, useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  NavLink
+} from 'react-router-dom';
+import { Login } from './components/login';
+import { Authentication } from './models/authentication';
+import { AuthContext } from './providers/auth/auth.context';
 import { Campaign } from './screens/campaign';
 import { Home } from './screens/home';
 
@@ -10,13 +17,20 @@ const RoutedApp = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink exact activeStyle={{ textDecoration: 'underline' }} to="/">
+              Home
+            </NavLink>
           </li>
           <li>
-            <Link to="/campaign">Campaign</Link>
+            <NavLink
+              activeStyle={{ textDecoration: 'underline' }}
+              to="/campaign"
+            >
+              Campaign
+            </NavLink>
           </li>
         </ul>
-        <Authenticator />
+        <Login />
       </nav>
       <Switch>
         <Route path="/campaign">
@@ -31,5 +45,13 @@ const RoutedApp = () => {
 };
 
 export const App: FC = () => {
-  return <RoutedApp />;
+  const [status, setStatus] = useState<Authentication>(
+    Authentication.UNATHENTICATED
+  );
+
+  return (
+    // <AuthContext.Provider value={{ status, setStatus }}>
+    <RoutedApp />
+    // </AuthContext.Provider>
+  );
 };

@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 
-export const Authenticator = () => {
+export const Login = () => {
   const [authState, setAuthState] = useState(0);
 
   const handleChange = ({ target }) => {
     const val = +target.value;
     setAuthState(prev => (target.checked ? val : val === 2 ? 1 : 0));
   };
+
+  // const { status, setStatus } = useAuth();
 
   return (
     <div id="authenticator">
@@ -17,7 +19,7 @@ export const Authenticator = () => {
           name="authenticated"
           onChange={handleChange}
           checked={authState === 1 || authState === 2}
-          value={1}
+          value="1"
         />
         Authenticated
       </label>
@@ -28,7 +30,7 @@ export const Authenticator = () => {
           id="verified"
           name="verified"
           checked={authState === 2}
-          value={2}
+          value="2"
         />
         Verified
       </label>
