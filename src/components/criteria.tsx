@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const Criteria: React.FC = ({ children }) => {
+export const Criteria: FC = ({ children }) => {
   return (
     <div className="criteria">
       <h2>Criteria</h2>

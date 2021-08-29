@@ -1,6 +1,5 @@
 import React, {
   FC,
-  Fragment,
   ReactChild,
   ReactFragment,
   ReactPortal,
@@ -14,6 +13,8 @@ type RenderProps = {
   isVerified: boolean;
   isAuthenticated: boolean;
   authStatus: AuthStatus;
+  isMobile: boolean;
+  isWeb: boolean;
 };
 
 type JsxFunc = (props: RenderProps) => JSX.Element;
@@ -48,7 +49,14 @@ export const ScreenEnvironment: FC<Props> = ({
     };
   }, [authStatus]);
 
+  const { isMobile, isWeb } = useMemo(() => {
+    return {
+      isMobile: environmentType === 'mobileApp',
+      isWeb: environmentType == 'web'
+    };
+  }, [environmentType]);
+
   return typeof children === 'function'
-    ? children({ isVerified, isAuthenticated, authStatus })
+    ? children({ isVerified, isAuthenticated, authStatus, isMobile, isWeb })
     : children;
 };

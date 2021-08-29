@@ -11,6 +11,7 @@ import { AuthContext } from './providers/auth/auth.context';
 import { Campaign1 } from './screens/campaign-1';
 import { Campaign2 } from './screens/campaign-2';
 import { Campaign3 } from './screens/campaign-3';
+import { Campaign4 } from './screens/campaign-4';
 
 const RoutedApp = () => {
   return (
@@ -33,9 +34,17 @@ const RoutedApp = () => {
           <li>
             <NavLink
               activeStyle={{ textDecoration: 'underline' }}
-              to="/campaign-4"
+              to="/campaign-3"
             >
               Campaign 3
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              activeStyle={{ textDecoration: 'underline' }}
+              to="/campaign-4"
+            >
+              Campaign 4
             </NavLink>
           </li>
         </ul>
@@ -45,8 +54,11 @@ const RoutedApp = () => {
         <Route path="/campaign-2">
           <Campaign2 />
         </Route>
-        <Route path="/campaign-4">
+        <Route path="/campaign-3">
           <Campaign3 />
+        </Route>
+        <Route path="/campaign-4">
+          <Campaign4 />
         </Route>
         <Route path="/">
           <Campaign1 />

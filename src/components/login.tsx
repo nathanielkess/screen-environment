@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useAuth } from '../providers/auth/useAuth';
 
-export const Login = () => {
+export const Login: FC = () => {
   const { status, setStatus } = useAuth();
 
   const handleChange = ({ target }) => {
