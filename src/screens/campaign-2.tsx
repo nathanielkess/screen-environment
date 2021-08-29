@@ -31,7 +31,7 @@ export const Campaign2: FC = () => {
       >
         {({ isAuthenticated }) =>
           isAuthenticated ? (
-            <CountDownCampaign />
+            <CountDownCampaign bg="#4CAF50" />
           ) : (
             <p>Please create an account</p>
           )

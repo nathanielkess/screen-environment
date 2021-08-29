@@ -34,7 +34,7 @@ export const Campaign3: FC = () => {
           ({
             unauthenticated: <p>Please create an account</p>,
             unverified: <p>Please validate your account</p>,
-            verified: <CountDownCampaign />
+            verified: <CountDownCampaign bg="#2F75FF" />
           }[authStatus])
         }
       </ScreenEnvironment>

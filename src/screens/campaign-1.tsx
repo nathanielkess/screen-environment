@@ -29,7 +29,7 @@ export const Campaign1: FC = () => {
         environmentType="mobileApp"
         authStatus={auth.get(status)}
       >
-        <CountDownCampaign />
+        <CountDownCampaign bg="#ea5656" />
       </ScreenEnvironment>
     </Fragment>
   );

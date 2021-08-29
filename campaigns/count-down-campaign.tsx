@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { CSSProperties, FC, useState } from 'react';
 
 const fullCenter = {
   display: 'flex',
@@ -9,7 +9,6 @@ const fullCenter = {
 };
 
 const counter = {
-  backgroundColor: '#4CAF50',
   width: 80,
   height: 80,
   borderRadius: 20,
@@ -18,7 +17,11 @@ const counter = {
   color: '#ffffff'
 };
 
-export const CountDownCampaign: FC = () => {
+type Props = {
+  bg?: string;
+};
+
+export const CountDownCampaign: FC<Props> = ({ bg = '#4CAF50' }) => {
   const [count, setCount] = useState<number | string>(10);
 
   const handleClick = () =>
@@ -28,7 +31,7 @@ export const CountDownCampaign: FC = () => {
 
   return (
     <div style={fullCenter}>
-      <button onClick={handleClick} style={counter}>
+      <button onClick={handleClick} style={{ ...counter, backgroundColor: bg }}>
         <p>{count}</p>
       </button>
     </div>
