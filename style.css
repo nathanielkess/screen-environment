@@ -15,6 +15,7 @@ nav {
   border: 1px solid #cfcfcf;
   display: flex;
   align-items: center;
+  border-bottom: 3px solid #b7b7b7;
 }
 
 nav > ul {
@@ -36,11 +37,12 @@ nav > ul a {
 }
 
 .criteria {
+  font-size: 0.75em;
   background-color: #cfcfcf;
-  margin: 40px 40px 10px 40px;
+  margin: 20px 20px 10px 20px;
   padding: 10px 20px;
-  border: 1px solid #333333;
-  border-radius: 15px;
+  border: 3px solid #b7b7b7;
+  border-radius: 10px;
 }
 
 .criteria h2 {

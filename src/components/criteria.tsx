@@ -1,10 +1,6 @@
 import React from 'react';
 
-type Props = {
-  title: string;
-};
-
-export const Criteria: React.FC<Props> = ({ children, title }) => {
+export const Criteria: React.FC = ({ children }) => {
   return (
     <div className="criteria">
       <h2>Criteria</h2>

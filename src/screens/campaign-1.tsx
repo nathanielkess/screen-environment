@@ -14,13 +14,13 @@ export const Campaign1: FC = () => {
    */
   const auth = new Map<Authentication, AuthStatus>([
     [Authentication.AUTHENTICATED, 'unverified'],
-    [Authentication.UNATHENTICATED, 'unathenticted'],
+    [Authentication.UNATHENTICATED, 'unauthenticated'],
     [Authentication.VERIFIED, 'verified']
   ]);
 
   return (
     <Fragment>
-      <Criteria title="Criteria">
+      <Criteria>
         <ul>
           <li>No conditions</li>
         </ul>
@@ -29,7 +29,7 @@ export const Campaign1: FC = () => {
         environmentType="mobileApp"
         authStatus={auth.get(status)}
       >
-        {() => <CountDownCampaign />}
+        <CountDownCampaign />
       </ScreenEnvironment>
     </Fragment>
   );

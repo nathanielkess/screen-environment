@@ -5,7 +5,7 @@ const fullCenter = {
   justifyContent: 'center',
   alignItems: 'center',
   borderWidth: 1,
-  height: 400
+  height: 200
 };
 
 const counter = {

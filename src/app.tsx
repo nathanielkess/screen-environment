@@ -10,7 +10,7 @@ import { Authentication } from './models/authentication';
 import { AuthContext } from './providers/auth/auth.context';
 import { Campaign1 } from './screens/campaign-1';
 import { Campaign2 } from './screens/campaign-2';
-import { Home } from './screens/home';
+import { Campaign3 } from './screens/campaign-3';
 
 const RoutedApp = () => {
   return (
@@ -19,14 +19,6 @@ const RoutedApp = () => {
         <ul>
           <li>
             <NavLink exact activeStyle={{ textDecoration: 'underline' }} to="/">
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              activeStyle={{ textDecoration: 'underline' }}
-              to="/campaign-1"
-            >
               Campaign 1
             </NavLink>
           </li>
@@ -35,21 +27,29 @@ const RoutedApp = () => {
               activeStyle={{ textDecoration: 'underline' }}
               to="/campaign-2"
             >
-              Campaign 1
+              Campaign 2
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              activeStyle={{ textDecoration: 'underline' }}
+              to="/campaign-4"
+            >
+              Campaign 3
             </NavLink>
           </li>
         </ul>
         <Login />
       </nav>
       <Switch>
-        <Route path="/campaign-1">
-          <Campaign1 />
-        </Route>
         <Route path="/campaign-2">
           <Campaign2 />
         </Route>
+        <Route path="/campaign-4">
+          <Campaign3 />
+        </Route>
         <Route path="/">
-          <Home />
+          <Campaign1 />
         </Route>
       </Switch>
     </Router>

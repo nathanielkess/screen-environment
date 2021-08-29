@@ -5,7 +5,7 @@ import { Criteria } from '../components/criteria';
 import { Authentication } from '../models/authentication';
 import { useAuth } from '../providers/auth/useAuth';
 
-export const Campaign2: FC = () => {
+export const Campaign3: FC = () => {
   const { status, setStatus } = useAuth();
 
   /**
@@ -23,18 +23,19 @@ export const Campaign2: FC = () => {
       <Criteria>
         <ul>
           <li>Must be authenticated</li>
+          <li>Must be fully verified</li>
         </ul>
       </Criteria>
       <ScreenEnvironment
         environmentType="mobileApp"
         authStatus={auth.get(status)}
       >
-        {({ isAuthenticated }) =>
-          isAuthenticated ? (
-            <CountDownCampaign />
-          ) : (
-            <p>Please create an account</p>
-          )
+        {({ authStatus }) =>
+          ({
+            unauthenticated: <p>Please create an account</p>,
+            unverified: <p>Please validate your account</p>,
+            verified: <CountDownCampaign />
+          }[authStatus])
         }
       </ScreenEnvironment>
     </Fragment>

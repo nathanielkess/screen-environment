@@ -3,13 +3,20 @@ import React, {
   Fragment,
   ReactChild,
   ReactFragment,
-  ReactPortal
+  ReactPortal,
+  useMemo
 } from 'react';
 
-export type AuthStatus = 'unathenticted' | 'verified' | 'unverified';
+export type AuthStatus = 'unauthenticated' | 'verified' | 'unverified';
 export type ApplicationEnvironments = 'web' | 'mobileApp';
 
-type JsxFunc = () => JSX.Element;
+type RenderProps = {
+  isVerified: boolean;
+  isAuthenticated: boolean;
+  authStatus: AuthStatus;
+};
+
+type JsxFunc = (props: RenderProps) => JSX.Element;
 
 type RNode =
   | JsxFunc
@@ -27,10 +34,21 @@ type Props = {
   environmentType: ApplicationEnvironments;
 };
 
-type RenderProps = {
-  isVerified: boolean;
-};
+export const ScreenEnvironment: FC<Props> = ({
+  children,
+  authStatus,
+  environmentType,
+  onAuthStatusChange
+}) => {
+  const { isAuthenticated, isVerified } = useMemo(() => {
+    return {
+      isAuthenticated: authStatus !== 'unauthenticated',
+      isVerified: authStatus === 'verified',
+      authStatus: authStatus
+    };
+  }, [authStatus]);
 
-export const ScreenEnvironment: FC<Props> = ({ children }) => {
-  return typeof children === 'function' ? children() : children;
+  return typeof children === 'function'
+    ? children({ isVerified, isAuthenticated, authStatus })
+    : children;
 };
